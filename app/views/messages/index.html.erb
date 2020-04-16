@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Messages</h1>
+
+<% @messages.each do |message| %>
+    <div id="message_corners">
+      Message:<td><%= message.body %></td><br>
+      Author: <td><%= message.author %></td><br>
+      Posted: <td><%= message.created_at.strftime('%d-%m-%Y %H:%M')%></td>
+    </div>
+    <div>
+      <% message.comments.each do |comment| %>
+        <p id="comment_corners"> <%=comment.text%></p>
+      <%end%>
+    </div>
+<% end %>
+<br>
+
+<style type="text/css">
+#message_corners {
+  border-radius: 25px;
+  border: 2px solid #9b958d;
+  padding: 20px;
+  width: 75%;
+}
+#comment_corners {
+  border-radius: 15px 50px;
+  border: 2px solid #9b958d;
+  padding: 20px;
+  width: 75%;
+  position: relative;
+  margin-left: 20%
+}
+</style>
